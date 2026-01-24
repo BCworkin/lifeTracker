@@ -1,0 +1,17 @@
+package lifeTrackerModule;
+
+public enum ActionType {
+	
+	SPENDING,
+	EARNING,
+	EXERCISING,
+	SOCIALISING,
+	CODING,
+	DATING,
+	DOOMSCROLLING,
+	LEANING,
+	FAMILYTIME,
+	RESTING,
+	UNHEALTHY,
+	
+}
