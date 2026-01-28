@@ -1,13 +1,19 @@
 package lifeTrackerModule;
 
 import java.util.Scanner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 
+@SpringBootApplication
 public class Main {
 	
     public static void main(String[] args) {
     	
-    	LifeTrackingService service = new LifeTrackingService();
+    	ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
+    	
+    	LifeTrackingService service = context.getBean(LifeTrackingService.class);
     	
     	Scanner scanner = new Scanner(System.in);
     	System.out.println("Welcome to LifeLedger!");

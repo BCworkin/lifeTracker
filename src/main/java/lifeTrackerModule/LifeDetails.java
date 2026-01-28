@@ -19,7 +19,6 @@ public class LifeDetails {
         return currentTime;
     }
 
-
     public Mood getMood() {
         return mood;
     }
