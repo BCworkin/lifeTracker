@@ -6,18 +6,39 @@ import org.springframework.stereotype.Service;
 @Service
 public class LifeTrackingService {
 
-	private final StatStorage store;
+	private final UserList userList;
 	
-	public LifeTrackingService(StatStorage store) {
-		this.store = store;
+	public LifeTrackingService(UserList userList) {
+		this.userList = userList;
+	}
+	
+	public User getUser(String name) {
+		User user = userList.getUser(name);
+        if (user == null) {
+            user = new User(name);
+            userList.addUser(user);
+            System.out.println("New user created: " + name);
+        }
+        System.out.println("Hi, " + name);
+        return user;
 	}
 
-    public void addEntry(LifeDetails entry) {
-        store.save(entry);
+    public void addEntry(String userName, LifeDetails entry) {
+        User user = userList.getUser(userName);
+        
+        if (user != null) {
+            user.addLifeEntry(entry);  
+        } else {
+            System.out.println("User is not found.");
+        }
     }
 
     public void printAllEntries() {
-        store.getAll().forEach(entry -> System.out.println(entry.getCurrentTime() + " | " + entry.getMood() + " | " + entry.getType())
-        );
+    	for (User user : userList.getUsers()) {
+    		System.out.println("Life Entries for " + user.getname() + ": ");
+    		for (LifeDetails detail : user.getEntries()) {
+        		System.out.println(detail.getCurrentTime() + " | " + detail.getMood() + " | " + detail.getType());
+    		}
+    	}
     }
 }

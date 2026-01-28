@@ -18,9 +18,18 @@ public class Main {
     	Scanner scanner = new Scanner(System.in);
     	System.out.println("Welcome to LifeLedger!");
     	
+    	
     	boolean running = true;
     	
     	while (running) {
+    		
+    		System.out.print("Who are we speaking to today?");
+    		String name = scanner.nextLine();
+    		
+    		User user = LifeTrackingService.getUser(name);
+    		
+    		//name functionality will be added here
+    		
     		System.out.println("How's your day going!");
     		System.out.println("1. Log Experiences");
     		System.out.println("2. View Life Stats");
