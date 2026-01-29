@@ -26,7 +26,7 @@ public class Main {
     		System.out.print("Who are we speaking to today?");
     		String name = scanner.nextLine();
     		
-    		User user = LifeTrackingService.getUser(name);
+    		User user = service.getUser(name);
     		
     		//name functionality will be added here
     		
@@ -67,7 +67,7 @@ public class Main {
                 }
 
                 LifeDetails entry = new LifeDetails(content, mood, type);
-                service.addEntry(entry);
+                service.addEntry(name, entry);
                 System.out.println("Entry added!");
                 break;
 
