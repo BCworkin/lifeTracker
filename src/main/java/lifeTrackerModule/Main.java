@@ -44,12 +44,29 @@ public class Main {
                 System.out.print("Enter details of experience: ");
                 String content = scanner.nextLine();
 
-                System.out.println("Select mood (HAPPY, MID, SAD, LETHARGIC, DRAINED, DISAPPOINTED, ECSTATIC): ");
+                System.out.println("Select mood (HAPPY, MID, SAD, DISAPPOINTED, ECSTATIC): ");
                 Mood mood = null;
                 while (mood == null) {
                     String moodInput = scanner.nextLine().toUpperCase();
                     try {
                         mood = Mood.valueOf(moodInput);
+                        switch (mood) {
+                        case HAPPY:
+                            user.addMental(10);
+                            break;
+                        case MID:
+                            user.addMental(1);
+                            break;
+                        case SAD:
+                            user.addMental(-5);
+                            break;
+                        case DISAPPOINTED:
+                            user.addMental(-10);
+                            break;
+                        case ECSTATIC:
+                            user.addMental(15);
+                            break;
+                        }
                     } catch (IllegalArgumentException e) {
                         System.out.print("Invalid mood. Try again: ");
                     }
@@ -62,6 +79,48 @@ public class Main {
                     String typeInput = scanner.nextLine().toUpperCase();
                     try {
                         type = ActionType.valueOf(typeInput);
+                        switch (type) {
+                        // work on this part, case is a little iffy on replies
+                        case SPENDING:
+                            System.out.println("How much did you spend today? ");
+                            Float outFlow = scanner.nextFloat();
+                            user.addMoney(-outFlow);
+                            break;
+                        case EARNING:
+                            System.out.println("How much did you earn today? ");
+                            Float inFlow = scanner.nextFloat();
+                            user.addMoney(inFlow);
+                            break;
+                        case EXERCISING:
+                            user.addHealth(10);
+                            user.addMental(5);
+                            user.addAesthetic(10);
+                            break;
+                        case SOCIALISING:
+                            user.addMental(15);
+                            break;
+                        case CODING:
+                            user.addSmarts(20);
+                            break;
+                        case DATING:
+                            user.addMental(20);
+                            break;
+                        case DOOMSCROLLING:
+                            user.addMental(-10);
+                            break;
+                        case LEARNING:
+                            user.addSmarts(10);
+                            break;
+                        case FAMILYTIME:
+                            user.addMental(10);
+                            break;
+                        case RESTING:
+                            user.addMental(2);
+                            break;
+                        case UNHEALTHY:
+                            user.addMental(-15);
+                            break;
+                        }
                     } catch (IllegalArgumentException e) {
                         System.out.print("Invalid type. Try again: ");
                     }

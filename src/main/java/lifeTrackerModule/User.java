@@ -8,6 +8,7 @@ public class User {
 	private int healthStat = 50;
 	private int mentalStat = 50;
 	private int aestheticStat = 50;
+	private int smartStat = 50;
 	private float money = 0;
 	private String name;
 	
@@ -23,6 +24,14 @@ public class User {
 	
 	public int getHealth() {
 		return healthStat;
+	}
+	
+	public int getSmarts() {
+		return smartStat;
+	}
+	
+	public void addSmarts(int smart) {
+		smartStat += smart;
 	}
 	
 	public void addHealth(int health) {
@@ -48,6 +57,10 @@ public class User {
 	
 	public float getMoney() {
 		return money;
+	}
+	
+	public void addMoney(float funds) {
+		money += funds;
 	}
 	
 	public List<LifeDetails> getEntries() {
