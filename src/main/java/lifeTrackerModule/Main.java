@@ -21,20 +21,21 @@ public class Main {
     	
     	boolean running = true;
     	
+		System.out.print("Who are we speaking to today?");
+		String name = scanner.nextLine();
+		
+		User user = service.getUser(name);
+		System.out.println("How's your day going!");
+
+		
     	while (running) {
     		
-    		System.out.print("Who are we speaking to today?");
-    		String name = scanner.nextLine();
     		
-    		User user = service.getUser(name);
-    		
-    		//name functionality will be added here
-    		
-    		System.out.println("How's your day going!");
     		System.out.println("1. Log Experiences");
     		System.out.println("2. View Life Stats");
     		System.out.println("3. Exit");
     		
+    		System.out.println(" ");
     		System.out.print("Make your choice, master.");
     		String choice = scanner.nextLine();
     		

@@ -36,6 +36,7 @@ public class LifeTrackingService {
     public void printAllEntries() {
     	for (User user : userList.getUsers()) {
     		System.out.println("Life Entries for " + user.getname() + ": ");
+    		System.out.println("Money: " + user.getMoney() + " | Health: " + user.getHealth() + " | Mental: " + user.getMental());
     		for (LifeDetails detail : user.getEntries()) {
         		System.out.println(detail.getCurrentTime() + " | " + detail.getMood() + " | " + detail.getType());
     		}

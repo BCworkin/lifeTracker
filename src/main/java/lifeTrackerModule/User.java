@@ -7,7 +7,6 @@ public class User {
 
 	private int healthStat = 50;
 	private int mentalStat = 50;
-	private int happinessStat = 50;
 	private int aestheticStat = 50;
 	private float money = 0;
 	private String name;
@@ -26,16 +25,25 @@ public class User {
 		return healthStat;
 	}
 	
+	public void addHealth(int health) {
+		healthStat += health;
+	}
+	
 	public int getMental() {
 		return mentalStat;
 	}
 	
-	public int getHappiness() {
-		return happinessStat;
+	public void addMental(int mental) {
+		mentalStat += mental;
 	}
+	
 	
 	public int getAesthetic() {
 		return aestheticStat;
+	}
+	
+	public void addAesthetic(int aesthetic) {
+		aestheticStat += aesthetic;
 	}
 	
 	public float getMoney() {
