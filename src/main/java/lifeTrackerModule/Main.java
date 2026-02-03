@@ -84,11 +84,13 @@ public class Main {
                         case SPENDING:
                             System.out.println("How much did you spend today? ");
                             Float outFlow = scanner.nextFloat();
+                            scanner.nextLine();
                             user.addMoney(-outFlow);
                             break;
                         case EARNING:
                             System.out.println("How much did you earn today? ");
                             Float inFlow = scanner.nextFloat();
+                            scanner.nextLine();
                             user.addMoney(inFlow);
                             break;
                         case EXERCISING:
@@ -121,14 +123,14 @@ public class Main {
                             user.addMental(-15);
                             break;
                         }
+                        LifeDetails entry = new LifeDetails(content, mood, type);
+                        service.addEntry(name, entry);
+                        System.out.println("Entry added!");
+                        break;
                     } catch (IllegalArgumentException e) {
                         System.out.print("Invalid type. Try again: ");
                     }
                 }
-
-                LifeDetails entry = new LifeDetails(content, mood, type);
-                service.addEntry(name, entry);
-                System.out.println("Entry added!");
                 break;
 
             case "2":
