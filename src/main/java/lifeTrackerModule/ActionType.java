@@ -10,7 +10,6 @@ public enum ActionType {
 	DATING,
 	DOOMSCROLLING,
 	LEARNING,
-	FAMILYTIME,
 	RESTING,
 	UNHEALTHY,
 	

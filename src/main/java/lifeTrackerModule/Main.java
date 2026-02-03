@@ -80,7 +80,6 @@ public class Main {
                     try {
                         type = ActionType.valueOf(typeInput);
                         switch (type) {
-                        // work on this part, case is a little iffy on replies
                         case SPENDING:
                             System.out.println("How much did you spend today? ");
                             Float outFlow = scanner.nextFloat();
@@ -94,33 +93,50 @@ public class Main {
                             user.addMoney(inFlow);
                             break;
                         case EXERCISING:
-                            user.addHealth(10);
-                            user.addMental(5);
-                            user.addAesthetic(10);
+                            System.out.println("Cardio, Strength or Sport?");
+                            String exerciseInput = scanner.nextLine().toUpperCase();
+                            if (exerciseInput.equalsIgnoreCase("Cardio")) {
+                                user.addHealth(5);
+                                user.addMental(5);
+                                user.addAesthetic(-5);
+                            } else if (exerciseInput.equalsIgnoreCase("Strength") ){
+                                user.addHealth(5);
+                                user.addMental(10);
+                                user.addAesthetic(10);
+                            } else if (exerciseInput.equalsIgnoreCase("Sport")) {
+	                            user.addHealth(5);
+	                            user.addMental(10);
+	                            user.addAesthetic(0);
+                        	}
                             break;
                         case SOCIALISING:
                             user.addMental(15);
+                            System.out.println("Good convos, better vibes");
                             break;
                         case CODING:
                             user.addSmarts(20);
+                            System.out.println("Exceptional work, I commend you.");
                             break;
                         case DATING:
                             user.addMental(20);
+                            System.out.println("Did it go well? (Y/N)");
                             break;
                         case DOOMSCROLLING:
                             user.addMental(-10);
+                            System.out.println("Another day wasted, maybe you should rethink what you should do with this life of yours. ");
                             break;
                         case LEARNING:
                             user.addSmarts(10);
-                            break;
-                        case FAMILYTIME:
-                            user.addMental(10);
+                            System.out.println("The more you know!");
                             break;
                         case RESTING:
                             user.addMental(2);
+                            System.out.println("You don't need an excuse to rest big fella.");
                             break;
                         case UNHEALTHY:
                             user.addMental(-15);
+                            user.addHealth(-10);
+                            System.out.println("Gambling or drinking.");
                             break;
                         }
                         LifeDetails entry = new LifeDetails(content, mood, type);
