@@ -12,13 +12,13 @@ public class LifeDetails {
 	private Long id;
 	
     @Column(nullable = false)
-	private final LocalDateTime currentTime;
+	private LocalDateTime currentTime;
     
     @Enumerated(EnumType.STRING)
-	private final Mood mood;
+	private Mood mood;
     
     @Enumerated(EnumType.STRING)
-	private final ActionType type;
+	private ActionType type;
     
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -41,9 +41,25 @@ public class LifeDetails {
     public Mood getMood() {
         return mood;
     }
+    
+    public void setMood(Mood mood) {
+        this.mood = mood;
+    }
 
     public ActionType getType() {
         return type;
+    }
+    
+    public void setType(ActionType type) {
+        this.type = type;
+    }
+    
+    public User getUser() {
+        return user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 	

@@ -14,6 +14,7 @@ public class Main {
     	ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
     	
     	LifeTrackingService service = context.getBean(LifeTrackingService.class);
+    	UserService userService = context.getBean(UserService.class);
     	
     	Scanner scanner = new Scanner(System.in);
     	System.out.println("Welcome to LifeLedger!");
@@ -24,7 +25,7 @@ public class Main {
 		System.out.print("Who are we speaking to today?");
 		String name = scanner.nextLine();
 		
-		User user = service.getUser(name);
+		User user = userService.getOrCreateUser(name);
 		System.out.println("How's your day going!");
 
 		

@@ -1,40 +1,31 @@
 package lifeTrackerModule;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Service
 public class LifeTrackingService {
 
-	private final UserList userList;
+	private final UserService userService; 
+	private final LifeDetailsRepo lifeDetailsRepo;
 	
-	public LifeTrackingService(UserList userList) {
-		this.userList = userList;
+	@Autowired
+	public LifeTrackingService(UserService userService, LifeDetailsRepo lifeDetailsRepo) {
+		this.userService = userService;
+		this.lifeDetailsRepo = lifeDetailsRepo;
 	}
 	
-	public User getUser(String name) {
-		User user = userList.getUser(name);
-        if (user == null) {
-            user = new User(name);
-            userList.addUser(user);
-            System.out.println("New user created: " + name);
-        }
-        System.out.println("Hi, " + name);
-        return user;
-	}
-
     public void addEntry(String userName, LifeDetails entry) {
-        User user = userList.getUser(userName);
-        
-        if (user != null) {
-            user.addLifeEntry(entry);  
-        } else {
-            System.out.println("User is not found.");
-        }
+        User user = userService.getOrCreateUser(userName);
+        entry.setUser(user);
+        lifeDetailsRepo.save(entry);
     }
 
     public void printAllEntries() {
-    	for (User user : userList.getUsers()) {
+    	for (User user : userService.getAllUsers()) {
     		System.out.println("Life Entries for " + user.getname() + ": ");
     		System.out.println("Money: " + user.getMoney() + " | Health: " + user.getHealth() + " | Mental: " + user.getMental());
     		for (LifeDetails detail : user.getEntries()) {
