@@ -1,10 +1,10 @@
 package lifeTrackerModule;
 
-import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class LifeTrackingService {
@@ -18,6 +18,7 @@ public class LifeTrackingService {
 		this.lifeDetailsRepo = lifeDetailsRepo;
 	}
 	
+	@Transactional
     public void addEntry(String userName, LifeDetails entry) {
         User user = userService.getOrCreateUser(userName);
         entry.setUser(user);
