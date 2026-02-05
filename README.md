@@ -5,3 +5,6 @@ I also want to brush up my coding skills while I'm at it!
 
 I will think of business cases along the way, but the main features would be to allow the user (me) to log sentences and also mood settings, activities such as fitness related, social skills etc
 Achievements will be achieved and the few things that I've thought of for now in terms of data will be saved in a database. 
+
+05/02/2025 Update
+Successfully linked workflow to PostgresSQL database instead of in memory saving. 
