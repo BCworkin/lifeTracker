@@ -28,7 +28,7 @@ public class LifeTrackingService {
     	for (User user : userService.getAllUsers()) {
     		System.out.println("Life Entries for " + user.getname() + ": ");
     		System.out.println("Money: " + user.getMoney() + " | Health: " + user.getHealth() + " | Mental: " + user.getMental());
-    		for (LifeDetails detail : user.getEntries()) {
+    		for (LifeDetails detail : lifeDetailsRepo.findByUser(user)) {
         		System.out.println(detail.getCurrentTime() + " | " + detail.getMood() + " | " + detail.getType());
     		}
     	}

@@ -7,6 +7,6 @@ import java.util.List;
 @Repository
 public interface LifeDetailsRepo extends JpaRepository <LifeDetails, Long> {
 	
-	List<LifeDetails> findUser(User user);
+	List<LifeDetails> findByUser(User user);
 }	
 

@@ -11,7 +11,7 @@ public class LifeDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-    @Column(nullable = false)
+    @Column(name="entry_time",nullable = false)
 	private LocalDateTime currentTime;
     
     @Enumerated(EnumType.STRING)
@@ -23,6 +23,8 @@ public class LifeDetails {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;  
+    
+    public LifeDetails() {}
 	
 	public LifeDetails(String content, Mood mood, ActionType type) {
         this.currentTime = LocalDateTime.now();
