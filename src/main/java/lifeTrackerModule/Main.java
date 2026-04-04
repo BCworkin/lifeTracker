@@ -142,7 +142,7 @@ public class Main {
                         }
                         LifeDetails entry = new LifeDetails(content, mood, type);
                         entry.setUser(user);
-                        service.addEntry(user.getname(), entry);
+                        service.addEntry(user, entry);
                         System.out.println("Entry added!");
                         break;
                     } catch (IllegalArgumentException e) {
