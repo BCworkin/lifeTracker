@@ -7,7 +7,9 @@ Skills aimed to showcase:
 <ul>
 <li>PostgreSQL</li>
 <li>SpringBoot Framework (Java）</li>
+<li>ASP.NET Core WEb API Gateway</li>li>
 <li>React Framework (Javascript)</li>
+<li>Terraform</li>
 <li>Docker Containerization</li>
   
 </ul>
