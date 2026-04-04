@@ -19,10 +19,10 @@ public class LifeTrackingService {
 	}
 	
 	@Transactional
-    public void addEntry(String userName, LifeDetails entry) {
-        User user = userService.getOrCreateUser(userName);
+    public void addEntry(User user, LifeDetails entry) {
         entry.setUser(user);
         lifeDetailsRepo.save(entry);
+        userService.saveUser(user);
     }
 
     public void printAllEntries() {

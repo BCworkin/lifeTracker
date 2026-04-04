@@ -24,6 +24,10 @@ public class UserService {
         System.out.println("Hi, " + name);
         return user;
     }
+    
+    public void saveUser(User user) {
+        userRepo.save(user);
+    }
 
 	public void removeUser(User user) {
 		userRepo.delete(user);
